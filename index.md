@@ -1,0 +1,15 @@
+<pre class='metadata'>
+Title: Best Practices for CLREQ
+Shortname: CLREQBP
+Level: 1
+Status: w3c/WG-NOTE
+Group: i18nWG
+URL: Your spec url
+Editor: Bobby Tung, Invited Expert bobbytung@w3.orgw
+Abstract: CLREQ listed 
+</pre>
+
+Introduction {#intro}
+=====================
+
+Introduction here.
