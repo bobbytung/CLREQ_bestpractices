@@ -6,10 +6,10 @@ Status: w3c/WG-NOTE
 Group: i18nWG
 URL: Your spec url
 Editor: Bobby Tung, Invited Expert bobbytung@w3.org
-Abstract: CLREQ listed 
+Abstract: There are a lot of CSS created to fullfil Chinese typography and layout requirement. Howerver, authors may not know how to use them for their content. This best practice document as reference to understand how to use them.
 </pre>
 
 Introduction {#intro}
 =====================
 
-[中文排版需求](https://www.w3.org/TR/clreq/)列出了中文排版的
+[中文排版需求](https://www.w3.org/TR/clreq/)列出了中文排版的各項需求，並且在
