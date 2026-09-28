@@ -15,11 +15,14 @@
       shortName: "clreq-bp",     
       editors: [{
         name: "Bobby Tung（董福興）",
-        url: "https://wanderer.tw"
+        note: "Invited Expert",
       }],
       github: "bobbytung/bestpractices", // 您的 GitHub 專案
       format: "markdown",        // 關鍵：全域啟用 Markdown 支援！
-      xref: "CLREQ"
+      xref: {
+        profile: "web-platform", 
+        specs: ["CLREQ", "CSS21", "JLREQ"]
+      }
     };
   </script>
 </head>
@@ -36,23 +39,72 @@
 
   <!-- 以下開始您的正文，直接使用 Markdown -->
   <section>
-    ## 1. 簡介 (Introduction)
+    ## 簡介 (Introduction)
     
-   中文排版需求（CLREQ）羅列了中文排版的各項需求。其中多數已經可以透過CSS或者HTML等Web技術，或者配合字體特性來達成。然而，這些新技術可能未能被廣泛知悉，或者透過其他各種方式達到相同的表現。本文件試圖針對各項需求，提出適合的達成手段，供作者應用在內容呈現上，以達到最適合中文閱讀的效果。
+   本文件介紹如何使用CSS及HTML等Web技術，已達成中文排版需求（CLREQ）所期待的排版表現。包含符合原則，但技術上並未受到普遍支持的做法；以及過往處理中文排版需求的權變手段，供過渡時處理參考。
     
-    ## 2. 語言與文字
+    ### 撰寫方針
     
-    中文書寫方式主要分為繁體與簡體，且有地區分別 [[CLREQ]]。
+    本文件的撰寫與推薦最佳實踐手段的順序，按照以下原則：
     
-    ### 2.1 指定頁面使用的文字
+    1. 內容與呈現分離：
     
-    ## 3. 段落處理
+    當同樣的排版呈現，可以透過內容（例如使用特定的Unicode碼點以字符顯示）以及呈現手段（例如使用CSS進行設計）時，遵循此原則，以呈現手段作為推薦的最佳實踐方式；並且也會列出已知的內容處理手段[[CSS21]]，做為注意事項避免重複。
     
-    ## 4. 內文整形
+    2. 使用具語意的標籤與結構
+    
+    排版表現上，盡量多使用具語意的標籤與內容結構，少使用僅具顯示目的的標籤（如```<i>, <u>```[[HTML401]]），以及需要參照外部資料的各種處理手段（例如使用Opentype字體技術）。
+    
+    3. 符合無障礙需求
+    
+    在使用文字與處理排版上，盡量能尊從[[WCAG22]]各項原則以避免產生各種無障礙問題。
+    
+    # 語言與文字
+    
+    中文書寫方式主要分為繁體與簡體，且不同區域使用的漢字字形（Glyph）有所差異 [[CLREQ]]。所以在處理中文內容時，需優先指定正確的地區-語言，以期使用者代理能正確選擇適當的字體來呈現漢字與標點符號。
+    
+    ### 指定頁面使用的地區與書寫方式
+    
+    - zh-Hans-CN / zh-CN 中國大陸簡體字
+    
+    - zh-Hant-TW / zh-TW 台灣繁體字
+    
+    - zh-Hant-HK / zh-HK 香港繁體字
+    
+    - zh-Hant-MO / zh-MO 澳門繁體字
+    
+    # 版心與文字方向
+    
+    # 段落處理
+    
+    ## 段落間距與段首縮排
+    
+    中文內容段落與段落間，一般不加間距，於段落首行縮排兩個漢字空間作為段落起始標示。[[[CLREQ#first_line_indents]]]，常使用CSS作為處理方式。
+    
+    <aside class="example" title="段落間距與段首縮排">
+      <pre class="css">
+      p {
+         margin = 0;
+         text-indent = 2em;
+      }
+      </pre>
+    </aside>
+    
+    <aside class="note">
+      <p>指定段落的<code>margin</code>為0，目的是許多使用者代理的預設樣式表，會為段落前後加上空白，與中文印刷書排版常用的段落緊鄰有所差異。若以段落間距作為分辨段落的方法，在分頁（如電子書）時，會難以分辨頁首是否為新段落，或者是上一頁未完的段落。</p>
+      <p>過往常用兩個全形空白　IDEOGRAPHIC SPACE<span class="uname">U+3000</span>供段首縮排使用。建議改用CSS進行處理。且需要注意，空白與CSS不可疊加使用，會造成段首多餘的空白。</p>
+    </aside>
+    
+    ## 均排
+    
+    [[[CLREQ#even_inter_character_spacing]]]
+    
+    # 內文整形
+    
   </section>
 
   <section>
-    ## 4. 術語定義 (Terminology)
+    # 術語定義 (Terminology)
     
     在這裡您可以定義專有名詞，後續 ReSpec 會自動幫您做交叉連結。
   </section>
